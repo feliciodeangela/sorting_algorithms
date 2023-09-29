@@ -10,13 +10,17 @@ void quick_sort(int *array, size_t size)
 	int l = 0;
 	int r = (int)(size - 1);
 
-	internalSort(array, l, r, size);
+	if (size > 1 && array != NULL)
+	{
+		internalSort(array, l, r, size);
+	}
 }
 /**
  * internalSort - Parcially order both sides of array.
  * @array: Array to divide.
  * @l: Leftmost element of the array.
  * @r: Rightmost element of the array.
+ * @size: Number of elements in the array.
  */
 void internalSort(int *array, int l, int r, size_t size)
 {
@@ -35,6 +39,7 @@ void internalSort(int *array, int l, int r, size_t size)
  * @array: Array to divide.
  * @l: Leftmost element of the array.
  * @r: Rightmost element of the array.
+ * @size: Number of elements in the array.
  * Return: The pivot of the array.
  */
 int part(int *array, int l, int r, size_t size)
