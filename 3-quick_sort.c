@@ -48,13 +48,16 @@ int part(int *array, int l, int r, size_t size)
 
 	for (j = l; j < r; j++)
 	{
-		if (*(array + j) <= piv)
+		if (*(array + j) < piv)
 		{
-			i++;
-			c = *(array + i);
-			*(array + i) = *(array + j);
-			*(array + j) = c;
-			print_array(array, size);
+			if (i != j)
+			{
+				i++;
+				c = *(array + i);
+				*(array + i) = *(array + j);
+				*(array + j) = c;
+				print_array(array, size);
+			}
 		}
 	}
 	c = *(array + (i + 1));
