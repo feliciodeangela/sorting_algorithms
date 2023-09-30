@@ -52,7 +52,6 @@ int part(int *array, int l, int r, size_t size)
 		{
 			if (i != j)
 			{
-				i++;
 				c = *(array + i);
 				*(array + i) = *(array + j);
 				*(array + j) = c;
