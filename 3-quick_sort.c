@@ -44,7 +44,7 @@ void internalSort(int *array, int l, int r, size_t size)
  */
 int part(int *array, int l, int r, size_t size)
 {
-	int j, c, piv = *(array + r), i = (l - 1);
+	int j, c, piv = *(array + r), i = l;
 
 	for (j = l; j < r; j++)
 	{
@@ -58,11 +58,15 @@ int part(int *array, int l, int r, size_t size)
 				*(array + j) = c;
 				print_array(array, size);
 			}
+			i++;
 		}
 	}
-	c = *(array + (i + 1));
-	*(array + (i + 1)) = *(array + r);
-	*(array + r) = c;
-	print_array(array, size);
-	return (i + 1);
+	if (*(array + i) != *(array + r))
+	{
+		c = *(array + i);
+		*(array + i) = *(array + r);
+		*(array + r) = c;
+		print_array(array, size);
+	}
+	return (i);
 }
